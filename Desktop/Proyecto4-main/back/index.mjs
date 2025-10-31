@@ -3,7 +3,7 @@ import dotenv from "dotenv"
 import { sequelize } from './config/db.mjs'
 import { Product } from "./models/products.mjs"
 import cors from 'cors'
-import { where } from "sequelize"
+
 // Crear servidor Express
 const app = express()
 dotenv.config()
@@ -135,7 +135,7 @@ app.put("/", async (req, res) => {
 // Para eliminar un producto
 app.delete("/", async (req, res) => {
   const query = req.query
-  
+
   try {
     const product = await Product.findByPk(query.id)
     await product.destroy()
