@@ -2,23 +2,35 @@ import express from "express"
 import "dotenv/config"
 import cors from "cors"
 import { sequelize } from './config/db.mjs'
+<<<<<<< HEAD
 import { authRoutes } from "./routes/auth.mjs"
 import { productRoutes } from "./routes/product.mjs"
 import { User } from './models/user.mjs'
 import bcrypt from 'bcrypt'
 
 const PORT = process.env.PORT ?? 3000
+=======
+import { userRoutes } from "./routes/user.mjs"
+import { productRoutes } from "./routes/products.mjs"
+
+const PORT = process.argv[2] ?? 3000
+>>>>>>> 89fd79582082601478b022b27c832740c478f0c4
 const app = express()
 
 app.use(cors())
 app.use(express.json())
 
 // Rutas de autenticación
+<<<<<<< HEAD
 app.use("/api/auth", authRoutes)
+=======
+app.use("/api/auth", userRoutes)
+>>>>>>> 89fd79582082601478b022b27c832740c478f0c4
 
 // Rutas de productos
 app.use("/api/products", productRoutes)
 
+<<<<<<< HEAD
 app.get('/', (req, res) => {
   res.json({ message: 'API backend funcionando. Rutas: /api/auth, /api/products' })
 })
@@ -51,8 +63,18 @@ app.listen(PORT, async () => {
     } catch (seedErr) {
       console.error('Error al comprobar/crear usuario administrador:', seedErr)
     }
+=======
+app.listen(PORT, async () => {
+  try {
+    await sequelize.sync({ alter: true })
+    console.log("Base de datos conectada")
+>>>>>>> 89fd79582082601478b022b27c832740c478f0c4
     console.log(`Servidor corriendo en http://localhost:${PORT}`)
   } catch (error) {
     console.log("Hubo un error en la conexión a la base de datos:", error)
   }
+<<<<<<< HEAD
 })
+=======
+})
+>>>>>>> 89fd79582082601478b022b27c832740c478f0c4

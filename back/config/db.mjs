@@ -1,4 +1,5 @@
 import { Sequelize } from "sequelize"
+<<<<<<< HEAD
 import dotenv from "dotenv"
 dotenv.config()
 
@@ -25,3 +26,16 @@ export const sequelize = new Sequelize(
   config.password,
   config.options
 )
+=======
+
+export const sequelize = new Sequelize(
+  process.env.NAME_DB,
+  process.env.USER_DB,
+  process.env.PASS_DB,
+  {
+    host: process.env.HOST_DB,
+    port: process.env.PORT_DB,
+    dialect: process.env.DIALECT_DB
+  }
+)
+>>>>>>> 89fd79582082601478b022b27c832740c478f0c4
