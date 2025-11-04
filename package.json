@@ -1,0 +1,12 @@
+{
+  "name": "proyecto4",
+  "version": "1.0.0",
+  "description": "Sistema de gestión de stock con autenticación",
+  "scripts": {
+    "dev": "concurrently \"cd back && npm run dev\" \"cd front && npm run dev\"",
+    "install:all": "npm install && cd back && npm install && cd ../front && npm install"
+  },
+  "dependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
